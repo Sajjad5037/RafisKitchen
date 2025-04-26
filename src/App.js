@@ -183,8 +183,27 @@ function App() {
 
         {/* Footer */}
         <footer style={{ backgroundColor: "#1f2937", color: "white", padding: "1rem", textAlign: "center" }}>
+          <div style={{ marginBottom: "0.5rem" }}>
+            <a 
+              href="https://www.facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
+            >
+              <i className="fab fa-facebook"></i>
+            </a>
+            <a 
+              href="https://www.twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
+          </div>
           © {new Date().getFullYear()} Rafi Kitchen. All rights reserved.
         </footer>
+
       </div>
     </Router>
   );
