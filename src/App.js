@@ -51,7 +51,7 @@ function App() {
               alt="Gallery Image 1" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Delicious Appetizer</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -60,7 +60,7 @@ function App() {
               alt="Gallery Image 2" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Chef's Special Main Course</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -69,7 +69,7 @@ function App() {
               alt="Gallery Image 3" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Tasty Dessert Selection</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -78,7 +78,7 @@ function App() {
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Refreshing Beverages</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
           </div>
         </div>
 
