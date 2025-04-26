@@ -1,5 +1,6 @@
 // pages/Home.js
-import ImageCarousel from "../components/ImageCarousel"; // Make sure you have this imported
+import ImageCarousel from "./ImageCarousel";
+
 
 function Home() {
   return (
