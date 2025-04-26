@@ -20,7 +20,7 @@ function App() {
         {/* Logo underneath the red stripe */}
         <div style={{ textAlign: "center", marginTop: "10px" }}>
           <img 
-            src="https://i.imgur.com/JxNtFru.png" 
+            src="https://i.imgur.com/Qsockhn.jpeg" 
             alt="Rafi Kitchen Logo" 
             style={{ maxWidth: "200px", height: "auto" }} 
           />
