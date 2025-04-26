@@ -158,6 +158,28 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+        {/* Get Directions Section */}
+        <div style={{ backgroundColor: "#f3f4f6", padding: "1rem", textAlign: "center" }}>
+          <h2 style={{ color: "purple", marginBottom: "0.5rem" }}>Visit Us</h2>
+          <p style={{ marginBottom: "1rem" }}>123 Main St, YourCity, State</p>
+          <a 
+            href="https://www.google.com/maps/dir/?api=1&destination=123+Main+St" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ 
+              backgroundColor: "purple", 
+              color: "white", 
+              padding: "0.75rem 1.5rem", 
+              borderRadius: "8px", 
+              textDecoration: "none",
+              fontWeight: "bold",
+              fontSize: "1rem"
+            }}
+          >
+            Get Directions
+          </a>
+        </div>
+
 
         {/* Footer */}
         <footer style={{ backgroundColor: "#1f2937", color: "white", padding: "1rem", textAlign: "center" }}>
