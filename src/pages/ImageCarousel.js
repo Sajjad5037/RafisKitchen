@@ -3,12 +3,11 @@ import React, { useState, useEffect } from "react";
 
 const ImageCarousel = () => {
   const images = [
-    "file:///C:/Users/Admin/Desktop/Rafis%20Kitchen%20photos/changing%20images/1.jpg",
-    "file:///C:/Users/Admin/Desktop/Rafis%20Kitchen%20photos/changing%20images/2.jpg",
-    "file:///C:/Users/Admin/Desktop/Rafis%20Kitchen%20photos/changing%20images/3.jpg",
-    "file:///C:/Users/Admin/Desktop/Rafis%20Kitchen%20photos/changing%20images/4.jpg",
-    "file:///C:/Users/Admin/Desktop/Rafis%20Kitchen%20photos/changing%20images/5.jpg"
-  ];
+  "https://i.imgur.com/emCzB1b.jpg",
+  "https://i.imgur.com/iSJ62mP.jpg",
+  "https://i.imgur.com/Pfrvwic.jpg",
+  "https://i.imgur.com/TFe85yO.jpg"
+];
 
   const [currentImage, setCurrentImage] = useState(0);
 
