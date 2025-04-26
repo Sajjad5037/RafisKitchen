@@ -38,6 +38,30 @@ function App() {
         {/* Image Carousel */}
         <ImageCarousel />  {/* Place the ImageCarousel component here */}
 
+        {/* Image Gallery */}
+        <div style={{ padding: "1rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1rem" }}>
+          <img 
+            src="https://i.imgur.com/C60QmSi.jpeg" 
+            alt="Gallery Image 1" 
+            style={{ width: "100%", height: "auto", borderRadius: "8px" }} 
+          />
+          <img 
+            src="https://i.imgur.com/F1FLfqU.jpeg" 
+            alt="Gallery Image 2" 
+            style={{ width: "100%", height: "auto", borderRadius: "8px" }} 
+          />
+          <img 
+            src="https://i.imgur.com/J9TFb3Z.jpeg" 
+            alt="Gallery Image 3" 
+            style={{ width: "100%", height: "auto", borderRadius: "8px" }} 
+          />
+          <img 
+            src="https://i.imgur.com/jjSGMnh.jpeg" 
+            alt="Gallery Image 4" 
+            style={{ width: "100%", height: "auto", borderRadius: "8px" }} 
+          />
+        </div>
+
         {/* Page Content */}
         <div style={{ flex: "1", padding: "1rem" }}>
           <Routes>
