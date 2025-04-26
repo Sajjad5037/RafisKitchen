@@ -86,7 +86,7 @@ function App() {
             />
             <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 5</p>
             <img 
-              src="ttps://i.imgur.com/8OgWRxu.jpeg" 
+              src="https://i.imgur.com/8OgWRxu.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
