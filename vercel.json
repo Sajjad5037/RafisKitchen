@@ -1,7 +1,13 @@
 {
-  "build": {
-    "env": {
-      "NPM_INSTALL_FLAGS": "--legacy-peer-deps"
+  "headers": [
+    {
+      "source": "/(.*)", 
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
     }
-  }
+  ]
 }
