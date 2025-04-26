@@ -12,7 +12,7 @@ function App() {
         
         {/* Red Stripe with Location and Phone Number */}
         <div style={{ backgroundColor: "red", color: "white", padding: "0.5rem", textAlign: "center" }}>
-          <span> Location:800 wAyne street Olean NY 14760 | Phone: 7167908100</span>
+          <span> Location:800 Wayne street Olean NY 14760 | Phone: 7167908100</span>
         </div>
 
         {/* Logo underneath the red stripe */}
@@ -49,7 +49,7 @@ function App() {
           <h2 style={{ color: "purple", marginBottom: "0.5rem" }}>Visit Us</h2>
           <p style={{ marginBottom: "1rem" }}>123 Main St, YourCity, State</p>
           <a 
-            href="https://www.google.com/maps/dir/?api=1&destination=123+Main+St" 
+            href="https://www.google.com/maps/place/800+Wayne+St,+Olean,+NY+14760,+USA/@42.0853223,-78.4416901,17z/data=!3m1!4b1!4m6!3m5!1s0x89d27057b9802739:0x79fa6fb46906073c!8m2!3d42.0853223!4d-78.4391152!16s%2Fg%2F11c2hdyycj?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ 
