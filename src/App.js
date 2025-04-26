@@ -1,202 +1,75 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/home";
-import Menu from "./pages/menu";
-import About from "./pages/about";
-import Reservation from "./pages/reservation";
-import Contact from "./pages/contact";
+// pages/Home.js
+import ImageCarousel from "./ImageCarousel";
 
-function App() {
+
+function Home() {
   return (
-    <Router>
-      <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-        
-        {/* Red Stripe with Location and Phone Number */}
-        <div style={{ backgroundColor: "red", color: "white", padding: "0.5rem", textAlign: "center" }}>
-          <span>Location: 123 Main St | Phone: (123) 456-7890</span>
-        </div>
+    <div>
+      {/* Welcome Section */}
+      <h1 style={{ fontSize: "2rem", fontWeight: "bold", textAlign: "center", marginTop: "1rem" }}>
+        Welcome to Our Restaurant!
+      </h1>
+      <p style={{ textAlign: "center", marginBottom: "2rem" }}>
+        Experience the finest dining with us 🍽️
+      </p>
 
-        {/* Logo underneath the red stripe */}
-        <div style={{ textAlign: "center", marginTop: "10px" }}>
-          <img 
-            src="https://i.imgur.com/Qsockhn.jpeg" 
-            alt="Rafi Kitchen Logo" 
-            style={{ maxWidth: "200px", height: "auto" }} 
-          />
-        </div>
+      {/* Image Carousel */}
+      <ImageCarousel />
 
-        {/* Navbar */}
-        <nav style={{ backgroundColor: "white", padding: "1rem", color: "purple", display: "flex", gap: "1rem", justifyContent: "center" }}>
-          <Link to="/" style={{ color: "purple", textDecoration: "none" }}>Home</Link>
-          <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
-          <Link to="/about" style={{ color: "purple", textDecoration: "none" }}>About</Link>
-          <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
-          <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Contact</Link>
-        </nav>
+      {/* Our Menu Heading */}
+      <h2 style={{ textAlign: "center", margin: "2rem 0 1rem 0", color: "purple", fontSize: "2rem" }}>
+        Our Menu
+      </h2>
 
-        {/* Page Content */}
-        <div style={{ flex: "1", padding: "1rem" }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/reservation" element={<Reservation />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
-
-        {/* Get Directions Section */}
-        <div style={{ backgroundColor: "#f3f4f6", padding: "1rem", textAlign: "center" }}>
-          <h2 style={{ color: "purple", marginBottom: "0.5rem" }}>Visit Us</h2>
-          <p style={{ marginBottom: "1rem" }}>123 Main St, YourCity, State</p>
-          <a 
-            href="https://www.google.com/maps/dir/?api=1&destination=123+Main+St" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ 
-              backgroundColor: "purple", 
-              color: "white", 
-              padding: "0.75rem 1.5rem", 
-              borderRadius: "8px", 
-              textDecoration: "none",
-              fontWeight: "bold",
-              fontSize: "1rem"
-            }}
-          >
-            Get Directions
-          </a>
-        </div>
-
-        {/* Footer */}
-        <footer style={{ backgroundColor: "#1f2937", color: "white", padding: "1rem", textAlign: "center" }}>
-          <div style={{ marginBottom: "0.5rem" }}>
-            <a 
-              href="https://www.facebook.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
-            >
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a 
-              href="https://www.twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
+      {/* Image Gallery - Menu Pictures */}
+      <div style={{ padding: "1rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1rem" }}>
+        {/* Menu Images */}
+        {[
+          { src: "https://i.imgur.com/C60QmSi.jpeg", desc: "Description Text of the picture 1" },
+          { src: "https://i.imgur.com/LFoND9C.jpeg", desc: "Description Text of the picture 2" },
+          { src: "https://i.imgur.com/J9TFb3Z.jpeg", desc: "Description Text of the picture 3" },
+          { src: "https://i.imgur.com/jjSGMnh.jpeg", desc: "Description Text of the picture 4" },
+          { src: "https://i.imgur.com/fYbDxgd.jpeg", desc: "Description Text of the picture 5" },
+          { src: "https://i.imgur.com/8OgWRxu.jpeg", desc: "Description Text of the picture 6" },
+          { src: "https://i.imgur.com/Lrsa3lf.jpeg", desc: "Description Text of the picture 7" },
+        ].map((item, index) => (
+          <div key={index} style={{ textAlign: "center" }}>
+            <img 
+              src={item.src} 
+              alt={`Gallery Image ${index + 1}`} 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>{item.desc}</p>
           </div>
-          © {new Date().getFullYear()} Rafi Kitchen. All rights reserved.
-        </footer>
-
+        ))}
       </div>
-    </Router>
+
+      {/* Our Ambiance Heading */}
+      <h2 style={{ textAlign: "center", margin: "2rem 0 1rem 0", color: "purple", fontSize: "2rem" }}>
+        Our Beautiful Ambiance
+      </h2>
+
+      {/* Image Gallery - Ambiance Pictures */}
+      <div style={{ padding: "1rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1rem" }}>
+        {/* Ambiance Images */}
+        {[
+          { src: "https://i.imgur.com/F1FLfqU.jpeg", desc: "Description Text" },
+          { src: "https://i.imgur.com/i0zg0WF.jpeg", desc: "Description Text of the picture" },
+          { src: "https://i.imgur.com/IBmkLYh.jpeg", desc: "Description Text of the picture" },
+          { src: "https://i.imgur.com/c7TV7Jn.jpeg", desc: "Description text of the picture" },
+        ].map((item, index) => (
+          <div key={index} style={{ textAlign: "center" }}>
+            <img 
+              src={item.src} 
+              alt={`Ambiance Image ${index + 1}`} 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
-<<<<<<< HEAD
-export default App;
-=======
-=======
-// App.js
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/home";
-import Menu from "./pages/menu";
-import About from "./pages/about";
-import Reservation from "./pages/reservation";
-import Contact from "./pages/contact";
-
-
-function App() {
-  return (
-    <Router>
-      <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-        
-        {/* Red Stripe with Location and Phone Number */}
-        <div style={{ backgroundColor: "red", color: "white", padding: "0.5rem", textAlign: "center" }}>
-          <span>Location: 123 Main St | Phone: (123) 456-7890</span>
-        </div>
-
-        {/* Logo underneath the red stripe */}
-        <div style={{ textAlign: "center", marginTop: "10px" }}>
-          <img 
-            src="https://i.imgur.com/Qsockhn.jpeg" 
-            alt="Rafi Kitchen Logo" 
-            style={{ maxWidth: "200px", height: "auto" }} 
-          />
-        </div>
-
-        {/* Navbar */}
-        <nav style={{ backgroundColor: "white", padding: "1rem", color: "purple", display: "flex", gap: "1rem", justifyContent: "center" }}>
-          <Link to="/" style={{ color: "purple", textDecoration: "none" }}>Home</Link>
-          <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
-          <Link to="/about" style={{ color: "purple", textDecoration: "none" }}>About</Link>
-          <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
-          <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Contact</Link>
-        </nav>
-
-        
-        {/* Page Content */}
-        <div style={{ flex: "1", padding: "1rem" }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/reservation" element={<Reservation />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
-        {/* Get Directions Section */}
-        <div style={{ backgroundColor: "#f3f4f6", padding: "1rem", textAlign: "center" }}>
-          <h2 style={{ color: "purple", marginBottom: "0.5rem" }}>Visit Us</h2>
-          <p style={{ marginBottom: "1rem" }}>123 Main St, YourCity, State</p>
-          <a 
-            href="https://www.google.com/maps/dir/?api=1&destination=123+Main+St" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ 
-              backgroundColor: "purple", 
-              color: "white", 
-              padding: "0.75rem 1.5rem", 
-              borderRadius: "8px", 
-              textDecoration: "none",
-              fontWeight: "bold",
-              fontSize: "1rem"
-            }}
-          >
-            Get Directions
-          </a>
-        </div>
-
-
-        {/* Footer */}
-        <footer style={{ backgroundColor: "#1f2937", color: "white", padding: "1rem", textAlign: "center" }}>
-          <div style={{ marginBottom: "0.5rem" }}>
-            <a 
-              href="https://www.facebook.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
-            >
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a 
-              href="https://www.twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
-            >
-              <i className="fab fa-twitter"></i>
-            </a>
-          </div>
-          © {new Date().getFullYear()} Rafi Kitchen. All rights reserved.
-        </footer>
-
-      </div>
-    </Router>
-  );
-}
-
->>>>>>> 1f0e8729835fb96e9dc84d0b96c355b7c5b800cd
-export default App;
->>>>>>> c3c689b9f6f179e2b403c1248f5a35ee99679ecf
+export default Home;
