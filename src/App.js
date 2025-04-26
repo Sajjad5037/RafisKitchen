@@ -79,24 +79,31 @@ function App() {
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
             <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 4</p>
+          </div>
+          <div>
             <img 
               src="https://i.imgur.com/fYbDxgd.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
             <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 5</p>
+            </div>
+            <div>
             <img 
               src="https://i.imgur.com/8OgWRxu.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
             <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 6</p>
+            </div>
+            <div>
             <img 
               src="https://i.imgur.com/Lrsa3lf.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
             <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 7</p>
+            </div>
 
           </div>
         </div>
