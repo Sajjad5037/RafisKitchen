@@ -1,5 +1,5 @@
 // pages/Home.js
-
+import ImageCarousel from "./ImageCarousel";
 
 
 function Home() {
