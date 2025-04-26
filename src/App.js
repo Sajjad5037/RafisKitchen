@@ -12,12 +12,12 @@ function App() {
     <Router>
       <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         {/* Navbar */}
-        <nav style={{ backgroundColor: "#1f2937", padding: "1rem", color: "white", display: "flex", gap: "1rem" }}>
-          <Link to="/" style={{ color: "white" }}>Home</Link>
-          <Link to="/menu" style={{ color: "white" }}>Menu</Link>
-          <Link to="/about" style={{ color: "white" }}>About</Link>
-          <Link to="/reservation" style={{ color: "white" }}>Reservation</Link>
-          <Link to="/contact" style={{ color: "white" }}>Contact</Link>
+        <nav style={{ backgroundColor: "white", padding: "1rem", color: "purple", display: "flex", gap: "1rem" }}>
+          <Link to="/" style={{ color: "purple" }}>Home</Link>
+          <Link to="/menu" style={{ color: "purple" }}>Menu</Link>
+          <Link to="/about" style={{ color: "purple" }}>About</Link>
+          <Link to="/reservation" style={{ color: "purple" }}>Reservation</Link>
+          <Link to="/contact" style={{ color: "purple" }}>Contact</Link>
         </nav>
 
         {/* Image Carousel */}
