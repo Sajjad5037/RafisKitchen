@@ -12,11 +12,11 @@ function App() {
       <div className="App">
         {/* Navbar */}
         <nav style={{ backgroundColor: "#1f2937", padding: "1rem", color: "white", display: "flex", gap: "1rem" }}>
-          <Link to="/">Home</Link>
-          <Link to="/menu">Menu</Link>
-          <Link to="/about">About</Link>
-          <Link to="/reservation">Reservation</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/" style={{ color: "white" }}>Home</Link>
+          <Link to="/menu" style={{ color: "white" }}>Menu</Link>
+          <Link to="/about" style={{ color: "white" }}>About</Link>
+          <Link to="/reservation" style={{ color: "white" }}>Reservation</Link>
+          <Link to="/contact" style={{ color: "white" }}>Contact</Link>
         </nav>
 
         {/* Page Content */}
