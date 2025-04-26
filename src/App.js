@@ -12,7 +12,7 @@ function App() {
         
         {/* Red Stripe with Location and Phone Number */}
         <div style={{ backgroundColor: "red", color: "white", padding: "0.5rem", textAlign: "center" }}>
-          <span>Location: 123 Main St | Phone: (123) 456-7890</span>
+          <span> Location:800 wAyne street Olean NY 14760 | Phone: 7167908100</span>
         </div>
 
         {/* Logo underneath the red stripe */}
