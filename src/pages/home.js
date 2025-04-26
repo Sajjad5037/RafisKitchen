@@ -5,13 +5,7 @@ import ImageCarousel from "./ImageCarousel";
 function Home() {
   return (
     <div>
-      {/* Welcome Section */}
-      <h1 style={{ fontSize: "2rem", fontWeight: "bold", textAlign: "center", marginTop: "1rem" }}>
-        Welcome to Our Restaurant!
-      </h1>
-      <p style={{ textAlign: "center", marginBottom: "2rem" }}>
-        Experience the finest dining with us 🍽️
-      </p>
+      
 
       {/* Image Carousel */}
       <ImageCarousel />
