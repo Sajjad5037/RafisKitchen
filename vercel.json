@@ -1,16 +1,12 @@
-<<<<<<< HEAD
 {
   "build": {
     "env": {
       "NPM_INSTALL_FLAGS": "--legacy-peer-deps"
     }
-  }
-}
-=======
-{
+  },
   "headers": [
     {
-      "source": "/(.*)", 
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -20,4 +16,3 @@
     }
   ]
 }
->>>>>>> 1f0e8729835fb96e9dc84d0b96c355b7c5b800cd
