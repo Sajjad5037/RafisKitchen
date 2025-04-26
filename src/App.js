@@ -71,41 +71,38 @@ function App() {
             />
             <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 3</p>
           </div>
-
           <div style={{ textAlign: "center" }}>
             <img 
               src="https://i.imgur.com/jjSGMnh.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 4</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 3</p>
           </div>
-          <div>
+          <div style={{ textAlign: "center" }}>
             <img 
               src="https://i.imgur.com/fYbDxgd.jpeg" 
-              alt="Gallery Image 4" 
+              alt="Gallery Image 5" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 5</p>
-            </div>
-            <div>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 3</p>
+          </div>
+          <div style={{ textAlign: "center" }}>
             <img 
               src="https://i.imgur.com/8OgWRxu.jpeg" 
-              alt="Gallery Image 4" 
+              alt="Gallery Image 6" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 6</p>
-            </div>
-            <div>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 3</p>
+          </div>
+          <div style={{ textAlign: "center" }}>
             <img 
               src="https://i.imgur.com/Lrsa3lf.jpeg" 
-              alt="Gallery Image 4" 
+              alt="Gallery Image 7"  
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 7</p>
-            </div>
-
-          </div>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 3</p>
+          </div>        
         </div>
         {/* Our Ambiance Heading */}
         <h2 style={{ textAlign: "center", margin: "2rem 0 1rem 0", color: "purple", fontSize: "2rem" }}>
