@@ -36,7 +36,12 @@ function App() {
         </nav>
 
         {/* Image Carousel */}
-        <ImageCarousel />  {/* Place the ImageCarousel component here */}
+        <ImageCarousel />
+
+        {/* Our Menu Heading */}
+        <h2 style={{ textAlign: "center", margin: "2rem 0 1rem 0", color: "purple", fontSize: "2rem" }}>
+          Our Menu
+        </h2>
 
         {/* Image Gallery */}
         <div style={{ padding: "1rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1rem" }}>
@@ -44,36 +49,36 @@ function App() {
             <img 
               src="https://i.imgur.com/C60QmSi.jpeg" 
               alt="Gallery Image 1" 
-              style={{ width: "100%", height: "auto", borderRadius: "8px", objectFit: "cover" }} 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Image 1 Description</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Delicious Appetizer</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
             <img 
-              src="https://i.imgur.com/F1FLfqU.jpeg" 
+              src="https://i.imgur.com/LFoND9C.jpeg" 
               alt="Gallery Image 2" 
-              style={{ width: "100%", height: "auto", borderRadius: "8px", objectFit: "cover" }} 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Image 2 Description</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Chef's Special Main Course</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
             <img 
               src="https://i.imgur.com/J9TFb3Z.jpeg" 
               alt="Gallery Image 3" 
-              style={{ width: "100%", height: "auto", borderRadius: "8px", objectFit: "cover" }} 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Image 3 Description</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Tasty Dessert Selection</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
             <img 
               src="https://i.imgur.com/jjSGMnh.jpeg" 
               alt="Gallery Image 4" 
-              style={{ width: "100%", height: "auto", borderRadius: "8px", objectFit: "cover" }} 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Image 4 Description</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Refreshing Beverages</p>
           </div>
         </div>
 
