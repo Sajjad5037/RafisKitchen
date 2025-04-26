@@ -10,7 +10,7 @@ import ImageCarousel from "./pages/ImageCarousel"; // Import the ImageCarousel c
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         {/* Navbar */}
         <nav style={{ backgroundColor: "#1f2937", padding: "1rem", color: "white", display: "flex", gap: "1rem" }}>
           <Link to="/" style={{ color: "white" }}>Home</Link>
@@ -24,7 +24,7 @@ function App() {
         <ImageCarousel />  {/* Place the ImageCarousel component here */}
 
         {/* Page Content */}
-        <div style={{ padding: "1rem" }}>
+        <div style={{ flex: "1", padding: "1rem" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/menu" element={<Menu />} />
@@ -33,6 +33,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+
+        {/* Footer */}
+        <footer style={{ backgroundColor: "#1f2937", color: "white", padding: "1rem", textAlign: "center" }}>
+          © {new Date().getFullYear()} Rafi Kitchen. All rights reserved.
+        </footer>
       </div>
     </Router>
   );
