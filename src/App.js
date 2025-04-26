@@ -5,6 +5,7 @@ import Menu from "./pages/menu";
 import About from "./pages/about";
 import Reservation from "./pages/reservation";
 import Contact from "./pages/contact";
+import ImageCarousel from "./pages/ImageCarousel"; // Import the ImageCarousel component
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           <Link to="/reservation" style={{ color: "white" }}>Reservation</Link>
           <Link to="/contact" style={{ color: "white" }}>Contact</Link>
         </nav>
+
+        {/* Image Carousel */}
+        <ImageCarousel />  {/* Place the ImageCarousel component here */}
 
         {/* Page Content */}
         <div style={{ padding: "1rem" }}>
