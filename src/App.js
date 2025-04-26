@@ -43,7 +43,7 @@ function App() {
           Our Menu
         </h2>
 
-        {/* Image Gallery */}
+        {/* Image Gallery menu pictures*/}
         <div style={{ padding: "1rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1rem" }}>
           <div style={{ textAlign: "center" }}>
             <img 
@@ -79,9 +79,71 @@ function App() {
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
             <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            <img 
+              src="https://i.imgur.com/fYbDxgd.jpeg" 
+              alt="Gallery Image 4" 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            <img 
+              src="ttps://i.imgur.com/8OgWRxu.jpeg" 
+              alt="Gallery Image 4" 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            <img 
+              src="https://i.imgur.com/Lrsa3lf.jpeg" 
+              alt="Gallery Image 4" 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+
           </div>
         </div>
+        {/* Our Ambiance Heading */}
+        <h2 style={{ textAlign: "center", margin: "2rem 0 1rem 0", color: "purple", fontSize: "2rem" }}>
+          Our Beautiful Ambiance
+        </h2>
 
+        {/* Image Ambiance Gallery Pictures pictures*/}
+        <div style={{ padding: "1rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "1rem" }}>
+          <div style={{ textAlign: "center" }}>
+            <img 
+              src="https://i.imgur.com/F1FLfqU.jpeg" 
+              alt="Gallery Image 1" 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text</p>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <img 
+              src="https://i.imgur.com/i0zg0WF.jpeg" 
+              alt="Gallery Image 2" 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture</p>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <img 
+              src="https://i.imgur.com/IBmkLYh.jpeg" 
+              alt="Gallery Image 3" 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture</p>
+          </div>
+
+          <div style={{ textAlign: "center" }}>
+            <img 
+              src="https://i.imgur.com/c7TV7Jn.jpeg" 
+              alt="Gallery Image 4" 
+              style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
+            />
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            
+          </div>
+        </div>
         {/* Page Content */}
         <div style={{ flex: "1", padding: "1rem" }}>
           <Routes>
