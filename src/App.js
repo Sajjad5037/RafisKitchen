@@ -51,7 +51,7 @@ function App() {
               alt="Gallery Image 1" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 1</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -60,7 +60,7 @@ function App() {
               alt="Gallery Image 2" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 2</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -69,7 +69,7 @@ function App() {
               alt="Gallery Image 3" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description Text of the picture 3</p>
           </div>
 
           <div style={{ textAlign: "center" }}>
@@ -78,25 +78,25 @@ function App() {
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 4</p>
             <img 
               src="https://i.imgur.com/fYbDxgd.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 5</p>
             <img 
               src="ttps://i.imgur.com/8OgWRxu.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 6</p>
             <img 
               src="https://i.imgur.com/Lrsa3lf.jpeg" 
               alt="Gallery Image 4" 
               style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }} 
             />
-            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture</p>
+            <p style={{ marginTop: "10px", fontSize: "14px", color: "#555" }}>Description text of the picture 7</p>
 
           </div>
         </div>
