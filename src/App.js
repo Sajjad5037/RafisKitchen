@@ -190,7 +190,7 @@ function App() {
               rel="noopener noreferrer"
               style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
             >
-              <i className="fab fa-facebook"></i>
+              <i className="fab fa-facebook-f"></i>
             </a>
             <a 
               href="https://www.twitter.com" 
