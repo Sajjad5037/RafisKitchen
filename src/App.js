@@ -4,6 +4,7 @@ import Menu from "./pages/menu";
 import About from "./pages/about";
 import Reservation from "./pages/reservation";
 import Contact from "./pages/contact";
+import Chatbot from "./pages/Chatbot";
 
 function App() {
   return (
