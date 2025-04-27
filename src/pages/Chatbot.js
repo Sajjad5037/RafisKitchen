@@ -10,7 +10,7 @@ export default function Chatbot({ onClose }) {
     // append user message immediately
     setMessages(msgs => [...msgs, { sender: 'You', text }]);
     try {
-      const res = await fetch('https://your-backend-url.com/api/chat', {
+      const res = await fetch('https://web-production-e5ae.up.railway.app/api/chatRK', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text })
