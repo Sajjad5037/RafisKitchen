@@ -44,7 +44,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
-
+         {/* Chatbot */}
+        <Chatbot />  {/* Chatbot added here */}
         {/* Get Directions Section */}
         <div style={{ backgroundColor: "#f3f4f6", padding: "1rem", textAlign: "center" }}>
           <h2 style={{ color: "purple", marginBottom: "0.5rem" }}>Visit Us</h2>
