@@ -1,128 +1,117 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-function Chatbot({ onClose }) {
-  // State to manage chat messages
+export default function Chatbot({ onClose }) {
   const [messages, setMessages] = useState([
-    { sender: 'Chatbot', text: 'Welcome to the chatbot! How can we assist you today?' }
+    { sender: 'Chatbot', text: 'Welcome! How can I help you today?' }
   ]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [input, setInput] = useState('');
 
-  // Function to send a message to the backend and receive a response
-  const sendMessage = async (message) => {
+  const sendMessage = async (text) => {
+    // append user message immediately
+    setMessages(msgs => [...msgs, { sender: 'You', text }]);
     try {
-      const response = await fetch('https://your-backend-url.com/api/chat', {
+      const res = await fetch('https://your-backend-url.com/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
       });
-
-      const data = await response.json();
-
-      // Assuming the response contains a "reply" field
-      const botReply = data.reply;
-
-      // Update the chat with the user's message and the chatbot's reply
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: 'User', text: message },
-        { sender: 'Chatbot', text: botReply }
-      ]);
-    } catch (error) {
-      console.error('Error sending message:', error);
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: 'Chatbot', text: 'Sorry, something went wrong. Please try again later.' }
-      ]);
+      const { reply } = await res.json();
+      setMessages(msgs => [...msgs, { sender: 'Chatbot', text: reply }]);
+    } catch {
+      setMessages(msgs => [...msgs, { sender: 'Chatbot', text: 'Oops, something went wrong.' }]);
     }
   };
 
-  const handleSend = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    if (inputMessage.trim()) {
-      sendMessage(inputMessage.trim());
-      setInputMessage('');
-    }
+    if (!input.trim()) return;
+    sendMessage(input.trim());
+    setInput('');
   };
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        width: '300px',
-        height: '400px',
-        backgroundColor: '#fff',
-        border: '1px solid #ddd',
-        borderRadius: '10px',
-        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-        zIndex: 1000,
-      }}
-    >
-      <div style={{ padding: '10px', display: 'flex', justifyContent: 'space-between' }}>
-        <h3>Chatbot</h3>
-        <button
-          onClick={onClose}
-          style={{
-            backgroundColor: 'red',
-            color: 'white',
-            border: 'none',
-            borderRadius: '50%',
-            width: '20px',
-            height: '20px',
-            fontSize: '12px',
-            cursor: 'pointer',
-          }}
-        >
-          X
-        </button>
+    <div style={{
+      position: 'fixed',
+      bottom: '20px',
+      right: '20px',
+      width: '300px',
+      height: '400px',
+      display: 'flex',
+      flexDirection: 'column',
+      backgroundColor: '#fff',
+      border: '1px solid #ddd',
+      borderRadius: '10px',
+      boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+      zIndex: 1000,
+    }}>
+      {/* header */}
+      <div style={{
+        flex: '0 0 auto',
+        padding: '10px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        borderBottom: '1px solid #eee'
+      }}>
+        <strong>Chatbot</strong>
+        <button onClick={onClose} style={{
+          background: 'red',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '50%',
+          width: '24px',
+          height: '24px',
+          cursor: 'pointer',
+          lineHeight: '0'
+        }}>×</button>
       </div>
 
-      <div style={{ padding: '10px', height: 'calc(100% - 80px)', overflowY: 'auto' }}>
-        {/* Render chat messages dynamically */}
-        {messages.map((msg, index) => (
-          <div key={index} style={{ marginBottom: '10px' }}>
-            <strong>{msg.sender}:</strong>
-            <p>{msg.text}</p>
+      {/* messages */}
+      <div style={{
+        flex: '1 1 auto',
+        padding: '10px',
+        overflowY: 'auto',
+        backgroundColor: '#fafafa'
+      }}>
+        {messages.map((m, i) => (
+          <div key={i} style={{ margin: '8px 0' }}>
+            <strong>{m.sender}:</strong> <span>{m.text}</span>
           </div>
         ))}
       </div>
 
-      {/* Send message form */}
-      <form onSubmit={handleSend} style={{ padding: '10px', borderTop: '1px solid #ddd' }}>
+      {/* input form */}
+      <form onSubmit={handleSubmit} style={{
+        flex: '0 0 auto',
+        padding: '10px',
+        borderTop: '1px solid #eee',
+        backgroundColor: '#fff'
+      }}>
         <input
           type="text"
-          name="message"
+          value={input}
+          onChange={e => setInput(e.target.value)}
           placeholder="Type a message..."
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
           style={{
             width: '100%',
-            padding: '0.5rem',
+            boxSizing: 'border-box',
+            padding: '8px',
             borderRadius: '5px',
-            border: '1px solid #ddd',
+            border: '1px solid #ddd'
           }}
         />
-        <button
-          type="submit"
-          style={{
-            backgroundColor: 'purple',
-            color: 'white',
-            padding: '0.5rem 1rem',
-            border: 'none',
-            borderRadius: '5px',
-            marginTop: '10px',
-            width: '100%',
-            cursor: 'pointer',
-          }}
-        >
+        <button type="submit" style={{
+          marginTop: '8px',
+          width: '100%',
+          padding: '8px',
+          backgroundColor: 'purple',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}>
           Send
         </button>
       </form>
     </div>
   );
 }
-
-export default Chatbot;
