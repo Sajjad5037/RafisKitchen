@@ -10,19 +10,20 @@ import Chatbot from "./pages/Chatbot"; // Import Chatbot
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
 
-  // Function to toggle the chatbot visibility
-  const toggleChatbot = () => setShowChatbot(prev => !prev);
+  // Function to toggle the chatbot
+  const toggleChatbot = () => {
+    setShowChatbot(!showChatbot);
+  };
 
   return (
     <Router>
       <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-        
-        {/* Header with Location and Phone Number */}
-        <header style={{ backgroundColor: "red", color: "white", padding: "0.5rem", textAlign: "center" }}>
-          <span>Location: 800 Wayne Street, Olean NY 14760 | Phone: 716-790-8100</span>
-        </header>
+        {/* Red Stripe with Location and Phone Number */}
+        <div style={{ backgroundColor: "red", color: "white", padding: "0.5rem", textAlign: "center" }}>
+          <span> Location:800 Wayne street Olean NY 14760 | Phone: 7167908100</span>
+        </div>
 
-        {/* Logo */}
+        {/* Logo underneath the red stripe */}
         <div style={{ textAlign: "center", marginTop: "10px" }}>
           <img 
             src="https://i.imgur.com/Qsockhn.jpeg" 
@@ -31,17 +32,17 @@ function App() {
           />
         </div>
 
-        {/* Navigation Bar */}
-        <nav style={{ backgroundColor: "white", padding: "1rem", color: "purple", display: "flex", justifyContent: "center", gap: "1rem" }}>
-          <Link to="/" style={navLinkStyle}>Home</Link>
-          <Link to="/menu" style={navLinkStyle}>Menu</Link>
-          <Link to="/about" style={navLinkStyle}>About</Link>
-          <Link to="/reservation" style={navLinkStyle}>Reservation</Link>
-          <Link to="/contact" style={navLinkStyle}>Contact</Link>
+        {/* Navbar */}
+        <nav style={{ backgroundColor: "white", padding: "1rem", color: "purple", display: "flex", gap: "1rem", justifyContent: "center" }}>
+          <Link to="/" style={{ color: "purple", textDecoration: "none" }}>Home</Link>
+          <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
+          <Link to="/about" style={{ color: "purple", textDecoration: "none" }}>About</Link>
+          <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
+          <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Contact</Link>
         </nav>
 
-        {/* Main Content */}
-        <main style={{ flex: "1", padding: "1rem" }}>
+        {/* Page Content */}
+        <div style={{ flex: "1", padding: "1rem" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/menu" element={<Menu />} />
@@ -49,41 +50,53 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </main>
-
-        {/* Get Directions Section */}
-        <section style={{ backgroundColor: "#f3f4f6", padding: "1rem", textAlign: "center" }}>
-          <h2 style={{ color: "purple", marginBottom: "0.5rem" }}>Visit Us</h2>
-          <p style={{ marginBottom: "1rem" }}>800 Wayne Street, Olean, NY 14760</p>
-          <a 
-            href="https://www.google.com/maps/place/800+Wayne+St,+Olean,+NY+14760,+USA"
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={getDirectionsBtnStyle}
-          >
-            Get Directions
-          </a>
-        </section>
-
-        {/* Chatbot Toggle Button */}
-        <div style={chatbotButtonStyle}>
-          <button onClick={toggleChatbot} style={chatbotBtnStyle}>
-            Chat
-          </button>
         </div>
 
         {/* Footer */}
         <footer style={{ backgroundColor: "#1f2937", color: "white", padding: "1rem", textAlign: "center" }}>
           <div style={{ marginBottom: "0.5rem" }}>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+            <a 
+              href="https://www.facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
+            >
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+            <a 
+              href="https://www.twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ margin: "0 0.5rem", color: "white", fontSize: "1.5rem" }}
+            >
               <i className="fab fa-twitter"></i>
             </a>
           </div>
           © {new Date().getFullYear()} Rafi Kitchen. All rights reserved.
         </footer>
+
+        {/* Chatbot Toggle Button */}
+        <div style={{ position: "fixed", bottom: "20px", right: "20px" }}>
+          <button 
+            onClick={toggleChatbot} 
+            style={{ 
+              backgroundColor: "purple", 
+              color: "white", 
+              padding: "0.75rem", 
+              borderRadius: "50%", 
+              border: "none", 
+              fontSize: "1.5rem", 
+              cursor: "pointer",
+              width: "50px", // size of the button
+              height: "50px",
+              display: "flex", 
+              justifyContent: "center", 
+              alignItems: "center"
+            }}
+          >
+            <i className="fas fa-robot" style={{ fontSize: "24px" }}></i> {/* Chatbot Icon */}
+          </button>
+        </div>
 
         {/* Chatbot Component */}
         {showChatbot && <Chatbot onClose={toggleChatbot} />}
@@ -91,43 +104,5 @@ function App() {
     </Router>
   );
 }
-
-// Reusable styles for various elements
-const navLinkStyle = {
-  color: "purple",
-  textDecoration: "none"
-};
-
-const getDirectionsBtnStyle = {
-  backgroundColor: "purple", 
-  color: "white", 
-  padding: "0.75rem 1.5rem", 
-  borderRadius: "8px", 
-  textDecoration: "none",
-  fontWeight: "bold",
-  fontSize: "1rem"
-};
-
-const chatbotButtonStyle = {
-  position: "fixed", 
-  bottom: "20px", 
-  right: "20px"
-};
-
-const chatbotBtnStyle = {
-  backgroundColor: "purple", 
-  color: "white", 
-  padding: "0.75rem", 
-  borderRadius: "50%", 
-  border: "none", 
-  fontSize: "1.5rem", 
-  cursor: "pointer"
-};
-
-const socialLinkStyle = {
-  margin: "0 0.5rem", 
-  color: "white", 
-  fontSize: "1.5rem"
-};
 
 export default App;
