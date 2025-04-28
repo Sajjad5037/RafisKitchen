@@ -37,7 +37,7 @@ function App() {
           <Link to="/" style={{ color: "purple", textDecoration: "none" }}>Home</Link>
           <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
           <a
-            href="https://clinic-management-system-27d11.web.app/OrderManager?publicToken=4678e64d-1acc-4b0e-931a-fbce4615ae77&sessionToken=4f4ca7ca-4064-4e9d-a57b-838f28773125"
+            href="https://clinic-management-system-27d11.web.app/OrderManager?publicToken=a7a429c9-e69c-46a0-a269-8a1e9634b882&sessionToken=fd92b5f1-a84f-466f-b72f-984819d9e458"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "purple", textDecoration: "none" }}
