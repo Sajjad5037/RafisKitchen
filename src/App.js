@@ -36,7 +36,7 @@ function App() {
         <nav style={{ backgroundColor: "white", padding: "1rem", color: "purple", display: "flex", gap: "1rem", justifyContent: "center" }}>
           <Link to="/" style={{ color: "purple", textDecoration: "none" }}>Home</Link>
           <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
-          <Link to="/about" style={{ color: "purple", textDecoration: "none" }}>About</Link>
+          <Link to="/about" style={{ color: "purple", textDecoration: "none" }}>Order Staus</Link>
           <a
             href="https://clinic-management-system-27d11.web.app/dashboard?publicToken=c2c7afd8-c78a-4fc2-b6f4-1b92ffaaed4a&sessionToken=843081ac-bcab-4602-a2b6-6e28fd335331"
             target="_blank"
