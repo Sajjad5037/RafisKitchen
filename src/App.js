@@ -37,7 +37,15 @@ function App() {
           <Link to="/" style={{ color: "purple", textDecoration: "none" }}>Home</Link>
           <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
           <Link to="/about" style={{ color: "purple", textDecoration: "none" }}>About</Link>
-          <Link to="https://clinic-management-system-27d11.web.app/dashboard?publicToken=c2c7afd8-c78a-4fc2-b6f4-1b92ffaaed4a&sessionToken=843081ac-bcab-4602-a2b6-6e28fd335331" style={{ color: "purple", textDecoration: "none" }}> Waiting List</Link>
+          <a
+            href="https://clinic-management-system-27d11.web.app/dashboard?publicToken=c2c7afd8-c78a-4fc2-b6f4-1b92ffaaed4a&sessionToken=843081ac-bcab-4602-a2b6-6e28fd335331"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "purple", textDecoration: "none" }}
+          >
+            Waiting List
+          </a>
+
 
           <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
           <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Contact</Link>
