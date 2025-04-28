@@ -28,7 +28,9 @@ function Reservation() {
 
   return (
     <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-      <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>Make a Reservation (Under Construction)</h1>
+      <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+        Make a Reservation <span style={{ color: "red" }}>(Under Construction)</span>
+      </h1>
       <p>Book your table online and skip the wait ⏰</p>
 
       <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
