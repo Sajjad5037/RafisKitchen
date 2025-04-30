@@ -34,34 +34,58 @@ const OrderOnline = () => {
 
   const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (!cart.length) {
       alert("Your cart is empty!");
       return;
     }
   
     const summary = cart
-      .map((item, i) => `${i + 1}. ${item.name} — $${item.price}`)
+      .map((item, i) => `${i + 1}. ${item.name} — $${item.price.toFixed(2)}`)
       .join("\n");
   
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+  
     const message = `
-  Order summary:
+  Order Summary:
   ${summary}
   
   Total: $${total.toFixed(2)}
   
-  Proceed to payment?
+  Do you want to proceed to payment?
     `.trim();
   
     if (window.confirm(message)) {
-      // TODO: call payment API or backend endpoint
-      setCart([]);
+      try {
+        const res = await fetch("http://localhost:8000/place-order", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            items: cart,
+            total: total,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+  
+        if (!res.ok) {
+          throw new Error(`Server error: ${res.statusText}`);
+        }
+  
+        const data = await res.json();
+        alert(`Order placed successfully! Order ID: ${data.order_id || "N/A"}`);
+        setCart([]); // Clear cart after success
+  
+      } catch (error) {
+        console.error("Failed to place order:", error);
+        alert("There was an issue placing your order. Please try again.");
+      }
+    } else {
+      alert("You can review and update your order before checking out.");
     }
   };
   
-
-  if (loading) return <p>Loading...</p>;
-
   return (
     <div style={{ padding: "20px" }}>
       <h1>Menu Items</h1>
