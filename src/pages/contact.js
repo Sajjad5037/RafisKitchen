@@ -55,9 +55,7 @@ const OrderOnline = () => {
   
   Total: $${total.toFixed(2)}
   
-  ensure you deposit the payment through following methods and send the screen shot of the receipt at 0300-4112884:
-  jazzcash:03004112884
-  meezan:0267-0101945485
+  Do you want to proceed to payment?
     `.trim();
   
     // Show a confirmation prompt to the user
