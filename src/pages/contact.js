@@ -4,6 +4,8 @@ const OrderOnline = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]); // items in cart
+  const [restaurantName, setRestaurantName] = useState("Amir");
+
 
   // Fetch menu items
   useEffect(() => {
@@ -73,6 +75,7 @@ const OrderOnline = () => {
             items: cart,
             total: total,
             timestamp: new Date().toISOString(),
+            restaurant_name:restaurantName,
           }),
         });
   
