@@ -51,7 +51,12 @@ const MenuItems = () => {
             <img
               src={item.image_url}
               alt={item.name}
-              style={{ width: "100%", height: "auto", borderRadius: "5px" }}
+              style={{
+                width: "100%",
+                height: "200px", // Fixed height for all images
+                objectFit: "cover", // Ensures the image fills the container while maintaining its aspect ratio
+                borderRadius: "5px",
+              }}
             />
             <p>Restaurant: {item.restaurant_name}</p>
           </div>
