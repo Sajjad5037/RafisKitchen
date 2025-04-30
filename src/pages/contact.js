@@ -39,9 +39,26 @@ const OrderOnline = () => {
       alert("Your cart is empty!");
       return;
     }
-    alert(`Checking out $${total.toFixed(2)}. Implement your payment flow here.`);
-    setCart([]);
+  
+    const summary = cart
+      .map((item, i) => `${i + 1}. ${item.name} — $${item.price}`)
+      .join("\n");
+  
+    const message = `
+  Order summary:
+  ${summary}
+  
+  Total: $${total.toFixed(2)}
+  
+  Proceed to payment?
+    `.trim();
+  
+    if (window.confirm(message)) {
+      // TODO: call payment API or backend endpoint
+      setCart([]);
+    }
   };
+  
 
   if (loading) return <p>Loading...</p>;
 
