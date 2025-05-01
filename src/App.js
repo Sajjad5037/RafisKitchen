@@ -41,14 +41,9 @@ function App() {
           Order Status
         </Link>
 
-          <a
-            href="https://clinic-management-system-27d11.web.app/dashboard?publicToken=c2c7afd8-c78a-4fc2-b6f4-1b92ffaaed4a&sessionToken=843081ac-bcab-4602-a2b6-6e28fd335331"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "purple", textDecoration: "none" }}
-          >
+          <Link to="/waiting-list" style={{ color: "purple", textDecoration: "none" }}>
             Waiting List
-          </a>
+          </Link>
 
 
           <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
@@ -64,6 +59,7 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/order-status" element={<OrderStatusPage />} />
+            <Route path="/waiting-list" element={<WaitingListPage />} />
 
           </Routes>
         </div>
