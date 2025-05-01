@@ -6,6 +6,7 @@ import About from "./pages/about";
 import Reservation from "./pages/reservation";
 import Contact from "./pages/contact";
 import Chatbot from "./pages/Chatbot"; // Import Chatbot
+import OrderStatusPage from "./pages/OrderStatusPage";
 
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -62,6 +63,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/order-status" element={<OrderStatusPage />} />
+
           </Routes>
         </div>
 
