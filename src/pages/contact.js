@@ -77,13 +77,22 @@ Do you want to proceed to payment?
 
     if (isConfirmed) {
       try {
+        const payloadItems = cart.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          description: item.description,
+          image_url: item.image_url,
+          restaurant_name: item.restaurant_name,
+          quantity: item.quantity,
+        }));
+      
+        // 2) send payloadItems instead of raw cart
         const res = await fetch("http://localhost:8000/place-order", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            items: cart,
+            items: payloadItems,
             total: total,
             timestamp: new Date().toISOString(),
             restaurant_name: restaurantName,
