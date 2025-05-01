@@ -36,14 +36,9 @@ function App() {
         <nav style={{ backgroundColor: "white", padding: "1rem", color: "purple", display: "flex", gap: "1rem", justifyContent: "center" }}>
           <Link to="/" style={{ color: "purple", textDecoration: "none" }}>Home</Link>
           <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
-          <a
-            href="https://clinic-management-system-27d11.web.app/OrderManager?publicToken=a7a429c9-e69c-46a0-a269-8a1e9634b882&sessionToken=fd92b5f1-a84f-466f-b72f-984819d9e458"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "purple", textDecoration: "none" }}
-          >
-            Order Status
-          </a>
+         <Link to="/order-status" style={{ color: "purple", textDecoration: "none" }}>
+          Order Status
+        </Link>
 
           <a
             href="https://clinic-management-system-27d11.web.app/dashboard?publicToken=c2c7afd8-c78a-4fc2-b6f4-1b92ffaaed4a&sessionToken=843081ac-bcab-4602-a2b6-6e28fd335331"
