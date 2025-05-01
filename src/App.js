@@ -7,7 +7,7 @@ import Reservation from "./pages/reservation";
 import Contact from "./pages/contact";
 import Chatbot from "./pages/Chatbot"; // Import Chatbot
 import OrderStatusPage from "./pages/OrderStatusPage";
-
+import WaitingListPage from "./pages/WaitingListPage";
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
 
