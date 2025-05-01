@@ -3,11 +3,9 @@ import React, { useEffect, useState } from "react";
 const OrderOnline = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]); // items in cart
+  const [cart, setCart] = useState([]);
   const [restaurantName, setRestaurantName] = useState("Amir");
 
-
-  // Fetch menu items
   useEffect(() => {
     const fetchMenuItems = async () => {
       setLoading(true);
@@ -27,45 +25,58 @@ const OrderOnline = () => {
   }, []);
 
   const handleAddToCart = (item) => {
-    setCart((prev) => [...prev, item]);
+    setCart((prevCart) => {
+      const existingIndex = prevCart.findIndex((i) => i.id === item.id);
+      if (existingIndex !== -1) {
+        const updatedCart = [...prevCart];
+        updatedCart[existingIndex].quantity += 1;
+        return updatedCart;
+      } else {
+        return [...prevCart, { ...item, quantity: 1 }];
+      }
+    });
   };
 
-  const handleRemoveFromCart = (indexToRemove) => {
-    setCart((prev) => prev.filter((_, i) => i !== indexToRemove));
+  const handleRemoveFromCart = (itemId) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === itemId);
+      if (!existingItem) return prevCart;
+
+      if (existingItem.quantity === 1) {
+        return prevCart.filter((item) => item.id !== itemId);
+      } else {
+        return prevCart.map((item) =>
+          item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
+        );
+      }
+    });
   };
 
-  const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = async () => {
-    // Check if the cart is empty before proceeding
     if (!cart.length) {
       alert("Your cart is empty!");
       return;
     }
-  
-    // Create a summary of the cart items
+
     const summary = cart
-      .map((item, i) => `${i + 1}. ${item.name} — $${item.price.toFixed(2)}`)
+      .map((item, i) => `${i + 1}. ${item.name} x${item.quantity} — $${(item.price * item.quantity).toFixed(2)}`)
       .join("\n");
-  
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-  
-    // Create the confirmation message
+
     const message = `
-  Order Summary:
-  ${summary}
-  
-  Total: $${total.toFixed(2)}
-  
-  Do you want to proceed to payment?
+Order Summary:
+${summary}
+
+Total: $${total.toFixed(2)}
+
+Do you want to proceed to payment?
     `.trim();
-  
-    // Show a confirmation prompt to the user
+
     const isConfirmed = window.confirm(message);
-  
+
     if (isConfirmed) {
       try {
-        // Send the order data to the local server
         const res = await fetch("http://localhost:8000/place-order", {
           method: "POST",
           headers: {
@@ -75,25 +86,19 @@ const OrderOnline = () => {
             items: cart,
             total: total,
             timestamp: new Date().toISOString(),
-            restaurant_name:restaurantName,
+            restaurant_name: restaurantName,
           }),
         });
-  
-        // Check if the request was successful
+
         if (!res.ok) {
           throw new Error(`Server error: ${res.statusText}`);
         }
-  
-        // Parse the response and alert the user
+
         const data = await res.json();
         const orderId = data.order_id || "N/A";
         alert(`Order placed successfully! Order ID: ${orderId}`);
-  
-        // Clear the cart after a successful order
         setCart([]);
-  
       } catch (error) {
-        // Log the error and show an alert to the user
         console.error("Failed to place order:", error);
         alert("There was an issue placing your order. Please try again.");
       }
@@ -101,10 +106,7 @@ const OrderOnline = () => {
       alert("You can review and update your order before checking out.");
     }
   };
-    
-  
-    
-  
+
   return (
     <div style={{ padding: "20px" }}>
       <h1>Menu Items</h1>
@@ -157,9 +159,9 @@ const OrderOnline = () => {
       ) : (
         <div style={{ maxWidth: "600px", margin: "auto" }}>
           <ul style={{ listStyle: "none", padding: 0 }}>
-            {cart.map((item, idx) => (
+            {cart.map((item) => (
               <li
-                key={idx}
+                key={item.id}
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -169,10 +171,12 @@ const OrderOnline = () => {
                 }}
               >
                 <span>
-                  {item.name} — ${item.price}
+                  {item.name} x{item.quantity} — ${(
+                    item.price * item.quantity
+                  ).toFixed(2)}
                 </span>
                 <button
-                  onClick={() => handleRemoveFromCart(idx)}
+                  onClick={() => handleRemoveFromCart(item.id)}
                   style={{
                     padding: "4px 8px",
                     backgroundColor: "#dc3545",
