@@ -88,7 +88,7 @@ Do you want to proceed to payment?
         }));
       
         // 2) send payloadItems instead of raw cart
-        const res = await fetch("http://localhost:8000/place-order", {
+        const res = await fetch("https://usefulapis-production.up.railway.app/place-order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
