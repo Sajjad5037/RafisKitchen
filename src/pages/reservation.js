@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios"; // install this if you haven't: npm install axios
+import axios from "axios";
 
 function Reservation() {
   const [name, setName] = useState("");
@@ -53,48 +53,70 @@ function Reservation() {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-      <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
-        Make a Reservation <span style={{ color: "red" }}>(Live)</span>
+    <div className="reservation-container">
+      <h1 className="reservation-title">
+        Make a Reservation <span className="live-tag">(Live)</span>
       </h1>
-      <p>Book your table online and skip the wait ⏰</p>
+      <p className="reservation-subtitle">Book your table online and skip the wait ⏰</p>
 
-      <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
-        {/* Name */}
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="name" style={{ fontWeight: "bold" }}>Name</label>
-          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+      <form onSubmit={handleSubmit} className="reservation-form">
+        <div className="form-group">
+          <label htmlFor="name" className="form-label">Name</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="form-input"
+            required
+          />
         </div>
 
-        {/* Email */}
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="email" style={{ fontWeight: "bold" }}>Email</label>
-          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div className="form-group">
+          <label htmlFor="email" className="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-input"
+            required
+          />
         </div>
 
-        {/* Date */}
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="date" style={{ fontWeight: "bold" }}>Reservation Date</label>
-          <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+        <div className="form-group">
+          <label htmlFor="date" className="form-label">Reservation Date</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="form-input"
+            required
+          />
         </div>
 
-        {/* Party Size */}
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="partySize" style={{ fontWeight: "bold" }}>Number of People</label>
-          <select id="partySize" value={partySize} onChange={(e) => setPartySize(parseInt(e.target.value))}>
+        <div className="form-group">
+          <label htmlFor="partySize" className="form-label">Number of People</label>
+          <select
+            id="partySize"
+            value={partySize}
+            onChange={(e) => setPartySize(parseInt(e.target.value))}
+            className="form-input"
+          >
             {[...Array(10)].map((_, i) => (
               <option key={i + 1} value={i + 1}>{i + 1}</option>
             ))}
           </select>
         </div>
 
-        {/* Available Tables */}
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="table" style={{ fontWeight: "bold" }}>Select Table</label>
+        <div className="form-group">
+          <label htmlFor="table" className="form-label">Select Table</label>
           <select
             id="table"
             value={selectedTable}
             onChange={(e) => setSelectedTable(e.target.value)}
+            className="form-input"
             required
           >
             <option value="">-- Select a Table --</option>
@@ -106,21 +128,23 @@ function Reservation() {
           </select>
         </div>
 
-        {/* Time Slot */}
-        <div style={{ marginBottom: "10px" }}>
-          <label htmlFor="time" style={{ fontWeight: "bold" }}>Time Slot</label>
-          <select id="time" value={time} onChange={(e) => setTime(e.target.value)} required>
+        <div className="form-group">
+          <label htmlFor="time" className="form-label">Time Slot</label>
+          <select
+            id="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            className="form-input"
+            required
+          >
             <option value="">-- Select a Time Slot --</option>
             {availableTimeSlots.map((slot, index) => (
-              <option key={index} value={slot}>
-                {slot}
-              </option>
+              <option key={index} value={slot}>{slot}</option>
             ))}
           </select>
         </div>
 
-        {/* Submit */}
-        <button type="submit">Reserve Table</button>
+        <button type="submit" className="submit-button">Reserve Table</button>
       </form>
     </div>
   );
