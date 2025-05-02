@@ -1,7 +1,4 @@
 // src/pages/WaitingListPage.jsx
-
-import React from "react";
-
 function WaitingListPage() {
   return (
     <iframe
