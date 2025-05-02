@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // Install axios if you haven't: npm install axios
 
 function Reservation() {
   const [name, setName] = useState("");
@@ -33,7 +33,6 @@ function Reservation() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log({
       name,
       email,
@@ -53,56 +52,92 @@ function Reservation() {
   };
 
   return (
-    <div className="reservation-container">
-      <h1 className="reservation-title">
-        Make a Reservation <span className="live-tag">(Live)</span>
+    <div style={{ padding: "30px", maxWidth: "700px", margin: "auto", backgroundColor: "#f9f9f9", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)" }}>
+      <h1 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "#333" }}>
+        Make a Reservation <span style={{ color: "#e74c3c" }}>(Live)</span>
       </h1>
-      <p className="reservation-subtitle">Book your table online and skip the wait ⏰</p>
+      <p style={{ fontSize: "1.1rem", color: "#555" }}>Book your table online and skip the wait ⏰</p>
 
-      <form onSubmit={handleSubmit} className="reservation-form">
-        <div className="form-group">
-          <label htmlFor="name" className="form-label">Name</label>
+      <form onSubmit={handleSubmit} style={{ marginTop: "30px" }}>
+        {/* Name */}
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="name" style={{ fontWeight: "bold", color: "#333" }}>Name</label>
           <input
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="form-input"
             required
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "5px",
+              fontSize: "1rem",
+              borderRadius: "5px",
+              border: "1px solid #ddd",
+              backgroundColor: "#f9f9f9",
+            }}
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">Email</label>
+        {/* Email */}
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Email</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-input"
             required
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "5px",
+              fontSize: "1rem",
+              borderRadius: "5px",
+              border: "1px solid #ddd",
+              backgroundColor: "#f9f9f9",
+            }}
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="date" className="form-label">Reservation Date</label>
+        {/* Date */}
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="date" style={{ fontWeight: "bold", color: "#333" }}>Reservation Date</label>
           <input
             type="date"
             id="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="form-input"
             required
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "5px",
+              fontSize: "1rem",
+              borderRadius: "5px",
+              border: "1px solid #ddd",
+              backgroundColor: "#f9f9f9",
+            }}
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="partySize" className="form-label">Number of People</label>
+        {/* Party Size */}
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="partySize" style={{ fontWeight: "bold", color: "#333" }}>Number of People</label>
           <select
             id="partySize"
             value={partySize}
             onChange={(e) => setPartySize(parseInt(e.target.value))}
-            className="form-input"
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "5px",
+              fontSize: "1rem",
+              borderRadius: "5px",
+              border: "1px solid #ddd",
+              backgroundColor: "#f9f9f9",
+            }}
           >
             {[...Array(10)].map((_, i) => (
               <option key={i + 1} value={i + 1}>{i + 1}</option>
@@ -110,14 +145,23 @@ function Reservation() {
           </select>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="table" className="form-label">Select Table</label>
+        {/* Available Tables */}
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="table" style={{ fontWeight: "bold", color: "#333" }}>Select Table</label>
           <select
             id="table"
             value={selectedTable}
             onChange={(e) => setSelectedTable(e.target.value)}
-            className="form-input"
             required
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "5px",
+              fontSize: "1rem",
+              borderRadius: "5px",
+              border: "1px solid #ddd",
+              backgroundColor: "#f9f9f9",
+            }}
           >
             <option value="">-- Select a Table --</option>
             {availableTables.map((table) => (
@@ -128,23 +172,53 @@ function Reservation() {
           </select>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="time" className="form-label">Time Slot</label>
+        {/* Time Slot */}
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="time" style={{ fontWeight: "bold", color: "#333" }}>Time Slot</label>
           <select
             id="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
-            className="form-input"
             required
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "5px",
+              fontSize: "1rem",
+              borderRadius: "5px",
+              border: "1px solid #ddd",
+              backgroundColor: "#f9f9f9",
+            }}
           >
             <option value="">-- Select a Time Slot --</option>
             {availableTimeSlots.map((slot, index) => (
-              <option key={index} value={slot}>{slot}</option>
+              <option key={index} value={slot}>
+                {slot}
+              </option>
             ))}
           </select>
         </div>
 
-        <button type="submit" className="submit-button">Reserve Table</button>
+        {/* Submit Button */}
+        <button
+          type="submit"
+          style={{
+            width: "100%",
+            padding: "12px",
+            backgroundColor: "#e74c3c",
+            color: "white",
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            transition: "background-color 0.3s ease",
+          }}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = "#c0392b")}
+          onMouseLeave={(e) => (e.target.style.backgroundColor = "#e74c3c")}
+        >
+          Reserve Table
+        </button>
       </form>
     </div>
   );
