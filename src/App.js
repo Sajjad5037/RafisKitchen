@@ -7,7 +7,9 @@ import Reservation from "./pages/reservation";
 import Contact from "./pages/contact";
 import Chatbot from "./pages/Chatbot"; // Import Chatbot
 import OrderStatusPage from "./pages/OrderStatusPage";
-import WaitingListPage from "./pages/WaitingListPage";
+import Contact from "./pages/contactRafisKitchen";
+
+
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
 
@@ -39,15 +41,14 @@ function App() {
           <Link to="/menu" style={{ color: "purple", textDecoration: "none" }}>Menu</Link>
          <Link to="/order-status" style={{ color: "purple", textDecoration: "none" }}>
           Order Status
-        </Link>
-
-          <Link to="/waiting-list" style={{ color: "purple", textDecoration: "none" }}>
-            Waiting List
-          </Link>
-
+        </Link>    
 
           
           <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Order Online</Link>
+          <Link to="/contact2" style={{ color: "purple", textDecoration: "none" }}>
+            Waiting List
+          </Link>
+
         </nav>
 
         {/* Page Content */}
@@ -59,7 +60,7 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/order-status" element={<OrderStatusPage />} />
-            <Route path="/waiting-list" element={<WaitingListPage />} />
+            <Route path="/contact2" element={<contactRafisKitchen />} />
 
           </Routes>
         </div>
