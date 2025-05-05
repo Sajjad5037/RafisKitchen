@@ -23,7 +23,7 @@ function App() {
       <div className="App" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         {/* Red Stripe with Location and Phone Number */}
         <div style={{ backgroundColor: "red", color: "white", padding: "0.5rem", textAlign: "center" }}>
-          <span> Location:800 Wayne street Olean NY 14760 | Phone: 7167908100</span>
+          <span> Location:800 Wayne street Olean NY 14760 (new)| Phone: 7167908100</span>
         </div>
 
         {/* Logo underneath the red stripe */}
