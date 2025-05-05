@@ -62,7 +62,7 @@ const Contact = () => {
         {/* Restaurant Info */}
         <div style={styles.details}>
           <h2>Our Location</h2>
-          <p><strong>Rafis Kitcehn</strong></p>
+          <p><strong>Rafis Kitchen</strong></p>
           <p>Wayne street</p>
           <p>Olean NY 14760</p>
           <p><strong>Phone:</strong> (716) 790-8100</p>
