@@ -71,7 +71,7 @@ const Contact = () => {
           {/* Optional Google Map */}
           <iframe
             title="Google Map"
-            src="https://www.google.com/maps/place/800+Wayne+St,+Olean,+NY+14760,+USA/@42.0853223,-78.4416901,17z/data=!3m1!4b1!4m6!3m5!1s0x89d27057b9802739:0x79fa6fb46906073c!8m2!3d42.0853223!4d-78.4391152!16s%2Fg%2F11c2hdyycj?entry=tts&g_ep=EgoyMDI1MDQzMC4xIPu8ASoASAFQAw%3D%3D&skid=319034f9-eec4-4219-811a-64561624382d"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2961.0339431013895!2d-78.44169012492586!3d42.08532227121981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d27057b9802739%3A0x79fa6fb46906073c!2s800%20Wayne%20St%2C%20Olean%2C%20NY%2014760%2C%20USA!5e0!3m2!1sen!2s!4v1746427260888!5m2!1sen!2s"
             width="100%"
             height="250"
             frameBorder="0"
