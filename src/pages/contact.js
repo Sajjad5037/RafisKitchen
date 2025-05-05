@@ -11,7 +11,7 @@ const OrderOnline = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://usefulapis-production.up.railway.app/get-menu-items/?restaurant_name=Amir`
+          `http://127.0.0.1:8000/get-menu-items/?restaurant_name=Amir`
         );
         if (!res.ok) throw new Error(res.statusText);
         setMenuItems(await res.json());
@@ -88,7 +88,7 @@ Do you want to proceed to payment?
         }));
       
         // 2) send payloadItems instead of raw cart
-        const res = await fetch("https://usefulapis-production.up.railway.app/place-order", {
+        const res = await fetch("http://127.0.0.1:8000/place-order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
