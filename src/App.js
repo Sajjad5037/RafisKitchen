@@ -46,7 +46,7 @@ function App() {
           </Link>
 
 
-          <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
+          
           <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Order Online</Link>
         </nav>
 
