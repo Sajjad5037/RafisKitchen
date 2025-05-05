@@ -62,16 +62,16 @@ const Contact = () => {
         {/* Restaurant Info */}
         <div style={styles.details}>
           <h2>Our Location</h2>
-          <p><strong>Gourmet Bites Restaurant</strong></p>
-          <p>123 Culinary Street</p>
-          <p>Foodie City, FC 45678</p>
-          <p><strong>Phone:</strong> (123) 456-7890</p>
-          <p><strong>Email:</strong> contact@gourmetbites.com</p>
+          <p><strong>Rafis Kitcehn</strong></p>
+          <p>Wayne street</p>
+          <p>Olean NY 14760</p>
+          <p><strong>Phone:</strong> (716) 790-8100</p>
+          <p><strong>Email:</strong> contact@rafis-kitchen.com</p>
 
           {/* Optional Google Map */}
           <iframe
             title="Google Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0190545084563!2d-122.41941538468177!3d37.774929779758226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c1e3e3e0b%3A0xe6514e06df56a407!2sGourmet%20Bites!5e0!3m2!1sen!2sus!4v1682553049731!5m2!1sen!2sus"
+            src="https://maps.app.goo.gl/w2MWHgVRiVYqfGxp7"
             width="100%"
             height="250"
             frameBorder="0"
@@ -89,7 +89,7 @@ const styles = {
   container: {
     padding: "40px 20px",
     fontFamily: "'Segoe UI', sans-serif",
-    backgroundColor: "#fff8f0",
+    backgroundColor: "#ffffff",
     color: "#333"
   },
   header: {
