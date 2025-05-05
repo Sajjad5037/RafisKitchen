@@ -46,7 +46,7 @@ function App() {
           
           <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Order Online</Link>
           <Link to="/contact2" style={{ color: "purple", textDecoration: "none" }}>
-            Waiting List
+            Contact Us
           </Link>
 
         </nav>
