@@ -47,7 +47,7 @@ function App() {
           
           <Link to="/OrderOnline" style={{ color: "purple", textDecoration: "none" }}>Order Online</Link>
             <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
-            
+            <Link to="/WaitingList" style={{ color: "purple", textDecoration: "none" }}>WaitingList</Link>
           <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>
             Contact Us
           </Link>
@@ -63,7 +63,7 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
             <Route path="/order-status" element={<OrderStatusPage />} />
-            
+            <Route path="/WaitingList" element={<WaitingList />} />
             <Route path="/contact" element={<Contact />} />
 
           </Routes>
