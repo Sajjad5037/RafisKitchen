@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Reservation() {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [partySize, setPartySize] = useState(1);
@@ -12,24 +12,21 @@ function Reservation() {
     e.preventDefault();
     setLoading(true);
 
-    const payload = { name, email, date, time, partySize };
+    const payload = { name, phone, date, time, partySize };
 
     try {
-      // Send reservation data to backend via fetch
-      const res = await fetch('http://127.0.0.1:5000/api/reservationRafisKitchen',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-           body: JSON.stringify(payload),
-        }
-      );
+      const res = await fetch('http://127.0.0.1:5000/api/reservationRafisKitchen', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
       if (!res.ok) throw new Error(`Status ${res.status}`);
 
       alert("You will hear from the restaurant management soon...");
 
-      // Clear fields on success
       setName("");
-      setEmail("");
+      setPhone("");
       setDate("");
       setTime("");
       setPartySize(1);
@@ -62,14 +59,15 @@ function Reservation() {
           />
         </div>
 
-        {/* Email */}
+        {/* Phone */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Email</label>
+          <label htmlFor="phone" style={{ fontWeight: "bold", color: "#333" }}>Phone Number</label>
           <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="tel"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="e.g., 123-456-7890"
             required
             style={{ width: "100%", padding: "10px", marginTop: "5px", fontSize: "1rem", borderRadius: "5px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}
           />
@@ -103,7 +101,7 @@ function Reservation() {
           </select>
         </div>
 
-        {/* Time Input */}
+        {/* Time */}
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor="time" style={{ fontWeight: "bold", color: "#333" }}>Time of Reservation</label>
           <input
