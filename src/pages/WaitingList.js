@@ -5,7 +5,7 @@ const WaitingList = () => {
     <div style={{ padding: '1rem' }}>
       
       <iframe
-        src="https://clinic-management-system-27d11.web.app/dashboard?publicToken=a7a429c9-e69c-46a0-a269-8a1e9634b882&sessionToken=fd92b5f1-a84f-466f-b72f-984819d9e458"
+        src="https://clinic-management-system-27d11.web.app/dashboard?publicToken=606b62fc-12d4-4b04-9053-c276c32879ac&sessionToken=669bab8e-fd1a-439b-85f7-2eab6d2bd3cb"
         title="Clinic Dashboard"
         width="100%"
         height="800px"
