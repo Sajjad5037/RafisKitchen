@@ -88,12 +88,17 @@ function Reservation() {
 
         {/* Party Size */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="partySize" style={{ fontWeight: "bold", color: "#333" }}>Number of People</label>
+          <label htmlFor="partySize" style={{ fontWeight: "bold", color: "#333" }}>
+            Number of People
+          </label>
           <input
             type="number"
             id="partySize"
-            value={partySize}
-            onChange={(e) => setPartySize(parseInt(e.target.value))}
+            value={partySize === "" ? "" : partySize} // Ensures value is an empty string when no input
+            onChange={(e) => {
+              const val = e.target.value;
+              setPartySize(val === "" ? "" : parseInt(val)); // Prevents NaN if the input is empty
+            }}
             placeholder="Enter number of guests"
             required
             min={1}
@@ -108,6 +113,7 @@ function Reservation() {
             }}
           />
         </div>
+
 
         {/* Time */}
         <div style={{ marginBottom: "20px" }}>
