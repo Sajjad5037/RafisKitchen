@@ -4,7 +4,7 @@ import Home from "./pages/home";
 import Menu from "./pages/menu";
 import About from "./pages/about";
 import Reservation from "./pages/reservation";
-import Contact from "./pages/contact";
+import OrderOnline from "./pages/OrderOnline";
 import Chatbot from "./pages/Chatbot"; // Import Chatbot
 import OrderStatusPage from "./pages/OrderStatusPage";
 import Contact from "./pages/contactRafisKitchen";
