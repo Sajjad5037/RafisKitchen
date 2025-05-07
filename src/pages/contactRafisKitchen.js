@@ -16,20 +16,22 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
+      const formPayload = new FormData();
+      formPayload.append("name", formData.name);
+      formPayload.append("email", formData.email);
+      formPayload.append("message", formData.message);
+  
       const response = await fetch("http://127.0.0.1:8000/api/send-email-rafis-kitchen", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
+        body: formPayload // No need to set Content-Type manually
       });
-
+  
       if (!response.ok) {
         throw new Error("Failed to send message.");
       }
-
+  
       alert("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
@@ -37,6 +39,7 @@ const Contact = () => {
       alert("Failed to send message. Please try again.");
     }
   };
+  
 
   return (
     <div style={styles.container}>
