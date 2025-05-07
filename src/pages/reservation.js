@@ -89,16 +89,24 @@ function Reservation() {
         {/* Party Size */}
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor="partySize" style={{ fontWeight: "bold", color: "#333" }}>Number of People</label>
-          <select
+          <input
+            type="number"
             id="partySize"
             value={partySize}
             onChange={(e) => setPartySize(parseInt(e.target.value))}
-            style={{ width: "100%", padding: "10px", marginTop: "5px", fontSize: "1rem", borderRadius: "5px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}
-          >
-            {[...Array(10)].map((_, i) => (
-              <option key={i + 1} value={i + 1}>{i + 1}</option>
-            ))}
-          </select>
+            placeholder="Enter number of guests"
+            required
+            min={1}
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "5px",
+              fontSize: "1rem",
+              borderRadius: "5px",
+              border: "1px solid #ddd",
+              backgroundColor: "#f9f9f9"
+            }}
+          />
         </div>
 
         {/* Time */}
