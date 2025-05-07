@@ -7,29 +7,6 @@ function Reservation() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [partySize, setPartySize] = useState(1);
-  const [availableTables, setAvailableTables] = useState([]);
-  const [selectedTable, setSelectedTable] = useState("");
-  const [availableTimeSlots, setAvailableTimeSlots] = useState([]);
-
-  // Fetch tables whenever date or partySize changes
-  useEffect(() => {
-    if (date && partySize) {
-      axios
-        .get(`/api/available-tables?date=${date}&partySize=${partySize}`)
-        .then((res) => setAvailableTables(res.data))
-        .catch((err) => console.error(err));
-    }
-  }, [date, partySize]);
-
-  // Fetch time slots when a table is selected
-  useEffect(() => {
-    if (selectedTable && date) {
-      axios
-        .get(`/api/available-times?tableId=${selectedTable}&date=${date}`)
-        .then((res) => setAvailableTimeSlots(res.data))
-        .catch((err) => console.error(err));
-    }
-  }, [selectedTable, date]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +16,6 @@ function Reservation() {
       date,
       time,
       partySize,
-      tableId: selectedTable,
     });
 
     // Clear fields
@@ -48,7 +24,6 @@ function Reservation() {
     setDate("");
     setTime("");
     setPartySize(1);
-    setSelectedTable("");
   };
 
   return (
@@ -145,40 +120,15 @@ function Reservation() {
           </select>
         </div>
 
-        {/* Available Tables */}
+        {/* Time Input */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="table" style={{ fontWeight: "bold", color: "#333" }}>Select Table</label>
-          <select
-            id="table"
-            value={selectedTable}
-            onChange={(e) => setSelectedTable(e.target.value)}
-            required
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginTop: "5px",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
-            }}
-          >
-            <option value="">-- Select a Table --</option>
-            {availableTables.map((table) => (
-              <option key={table.id} value={table.id}>
-                Table {table.table_number} (Seats: {table.capacity})
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Time Slot */}
-        <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="time" style={{ fontWeight: "bold", color: "#333" }}>Time Slot</label>
-          <select
+          <label htmlFor="time" style={{ fontWeight: "bold", color: "#333" }}>Time of Reservation</label>
+          <input
+            type="text"
             id="time"
             value={time}
             onChange={(e) => setTime(e.target.value)}
+            placeholder="e.g., 7:00 PM"
             required
             style={{
               width: "100%",
@@ -189,14 +139,7 @@ function Reservation() {
               border: "1px solid #ddd",
               backgroundColor: "#f9f9f9",
             }}
-          >
-            <option value="">-- Select a Time Slot --</option>
-            {availableTimeSlots.map((slot, index) => (
-              <option key={index} value={slot}>
-                {slot}
-              </option>
-            ))}
-          </select>
+          />
         </div>
 
         {/* Submit Button */}
