@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios"; // Install axios if you haven't: npm install axios
 
 function Reservation() {
@@ -10,6 +10,7 @@ function Reservation() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     console.log({
       name,
       email,
@@ -17,6 +18,9 @@ function Reservation() {
       time,
       partySize,
     });
+
+    // Show confirmation alert
+    alert("You will hear from the restaurant management soon...");
 
     // Clear fields
     setName("");
@@ -57,7 +61,7 @@ function Reservation() {
 
         {/* Email */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Email</label>
+          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Phone:</label>
           <input
             type="email"
             id="email"
