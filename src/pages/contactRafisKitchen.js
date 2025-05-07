@@ -23,7 +23,7 @@ const Contact = () => {
       formPayload.append("email", formData.email);
       formPayload.append("message", formData.message);
   
-      const response = await fetch("http://127.0.0.1:8000/api/send-email-rafis-kitchen", {
+      const response = await fetch("https://usefulapis-production.up.railway.app/api/send-email-rafis-kitchen", {
         method: "POST",
         body: formPayload // No need to set Content-Type manually
       });
