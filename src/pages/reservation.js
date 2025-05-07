@@ -20,7 +20,7 @@ function Reservation() {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: JSON.stringify(payload) }),
+           body: JSON.stringify(payload),
         }
       );
       if (!res.ok) throw new Error(`Status ${res.status}`);
