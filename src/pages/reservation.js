@@ -20,7 +20,7 @@ function Reservation() {
     });
 
     // Show confirmation alert
-    alert("You will hear from the restaurant management soon...");
+    alert("You will receive the confirmation message from the management soon...");
 
     // Clear fields
     setName("");
@@ -61,7 +61,7 @@ function Reservation() {
 
         {/* Email */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Phone:</label>
+          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Phone</label>
           <input
             type="email"
             id="email"
