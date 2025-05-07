@@ -15,7 +15,7 @@ function Reservation() {
     const payload = { name, phone, date, time, partySize };
 
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/reservationRafisKitchen', {
+      const res = await fetch('http://127.0.0.1:8000/api/reservationRafisKitchen', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
