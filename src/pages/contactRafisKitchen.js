@@ -14,11 +14,28 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you'd handle the actual form submission, like sending to an API or email service
-    alert("Message sent!");
-    setFormData({ name: "", email: "", message: "" });
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/send-email-rafis-kitchen", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message.");
+      }
+
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -26,7 +43,6 @@ const Contact = () => {
       <h1 style={styles.header}>Contact Us</h1>
 
       <div style={styles.content}>
-        {/* Contact Form */}
         <form onSubmit={handleSubmit} style={styles.form}>
           <h2>Send us a message</h2>
           <input
@@ -59,7 +75,6 @@ const Contact = () => {
           <button type="submit" style={styles.button}>Send</button>
         </form>
 
-        {/* Restaurant Info */}
         <div style={styles.details}>
           <h2>Our Location</h2>
           <p><strong>Rafis Kitchen</strong></p>
@@ -68,7 +83,6 @@ const Contact = () => {
           <p><strong>Phone:</strong> (716) 790-8100</p>
           <p><strong>Email:</strong> contact@rafis-kitchen.com</p>
 
-          {/* Optional Google Map */}
           <iframe
             title="Google Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2961.0339431013895!2d-78.44169012492586!3d42.08532227121981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d27057b9802739%3A0x79fa6fb46906073c!2s800%20Wayne%20St%2C%20Olean%2C%20NY%2014760%2C%20USA!5e0!3m2!1sen!2s!4v1746427260888!5m2!1sen!2s"
