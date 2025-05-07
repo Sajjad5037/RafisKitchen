@@ -61,7 +61,7 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/order-status" element={<OrderStatusPage />} />
-            <Route path="/contact2" element={<ContactRK />} />
+            <Route path="/contactRK" element={<ContactRK />} />
 
           </Routes>
         </div>
