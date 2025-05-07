@@ -8,6 +8,7 @@ import OrderOnline from "./pages/OrderOnline";
 import Chatbot from "./pages/Chatbot"; // Import Chatbot
 import OrderStatusPage from "./pages/OrderStatusPage";
 import Contact from "./pages/contactRafisKitchen";
+import WaitingList from "./pages/WaitingList";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           
           <Link to="/OrderOnline" style={{ color: "purple", textDecoration: "none" }}>Order Online</Link>
             <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
+            <Link to="/waiting-list" style={{ color: "purple", textDecoration: "none" }}>Waiting List</Link>
           <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>
             Contact Us
           </Link>
@@ -61,6 +63,7 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/OrderOnline" element={<OrderOnline />} />
             <Route path="/order-status" element={<OrderStatusPage />} />
+            <Route path="/waiting-list" element={<WaitingList />} />
             <Route path="/contact" element={<Contact />} />
 
           </Routes>
