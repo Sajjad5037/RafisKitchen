@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios"; // Install axios if you haven't: npm install axios
 
 function Reservation() {
   const [name, setName] = useState("");
@@ -7,27 +6,40 @@ function Reservation() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [partySize, setPartySize] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    console.log({
-      name,
-      email,
-      date,
-      time,
-      partySize,
-    });
+    const payload = { name, email, date, time, partySize };
 
-    // Show confirmation alert
-    alert("You will receive the confirmation message from the management soon...");
+    try {
+      // Send reservation data to backend via fetch
+      const res = await fetch(
+        'https://usefulapis-production.up.railway.app/api/chatRK',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: JSON.stringify(payload) }),
+        }
+      );
+      if (!res.ok) throw new Error(`Status ${res.status}`);
 
-    // Clear fields
-    setName("");
-    setEmail("");
-    setDate("");
-    setTime("");
-    setPartySize(1);
+      alert("You will hear from the restaurant management soon...");
+
+      // Clear fields on success
+      setName("");
+      setEmail("");
+      setDate("");
+      setTime("");
+      setPartySize(1);
+    } catch (err) {
+      console.error("Reservation error:", err);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -47,36 +59,20 @@ function Reservation() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginTop: "5px",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
-            }}
+            style={{ width: "100%", padding: "10px", marginTop: "5px", fontSize: "1rem", borderRadius: "5px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}
           />
         </div>
 
         {/* Email */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Phone</label>
+          <label htmlFor="email" style={{ fontWeight: "bold", color: "#333" }}>Email</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginTop: "5px",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
-            }}
+            style={{ width: "100%", padding: "10px", marginTop: "5px", fontSize: "1rem", borderRadius: "5px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}
           />
         </div>
 
@@ -89,15 +85,7 @@ function Reservation() {
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginTop: "5px",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
-            }}
+            style={{ width: "100%", padding: "10px", marginTop: "5px", fontSize: "1rem", borderRadius: "5px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}
           />
         </div>
 
@@ -108,15 +96,7 @@ function Reservation() {
             id="partySize"
             value={partySize}
             onChange={(e) => setPartySize(parseInt(e.target.value))}
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginTop: "5px",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
-            }}
+            style={{ width: "100%", padding: "10px", marginTop: "5px", fontSize: "1rem", borderRadius: "5px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}
           >
             {[...Array(10)].map((_, i) => (
               <option key={i + 1} value={i + 1}>{i + 1}</option>
@@ -134,37 +114,19 @@ function Reservation() {
             onChange={(e) => setTime(e.target.value)}
             placeholder="e.g., 7:00 PM"
             required
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginTop: "5px",
-              fontSize: "1rem",
-              borderRadius: "5px",
-              border: "1px solid #ddd",
-              backgroundColor: "#f9f9f9",
-            }}
+            style={{ width: "100%", padding: "10px", marginTop: "5px", fontSize: "1rem", borderRadius: "5px", border: "1px solid #ddd", backgroundColor: "#f9f9f9" }}
           />
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          style={{
-            width: "100%",
-            padding: "12px",
-            backgroundColor: "#e74c3c",
-            color: "white",
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            transition: "background-color 0.3s ease",
-          }}
-          onMouseEnter={(e) => (e.target.style.backgroundColor = "#c0392b")}
-          onMouseLeave={(e) => (e.target.style.backgroundColor = "#e74c3c")}
+          disabled={loading}
+          style={{ width: "100%", padding: "12px", backgroundColor: loading ? "#aaa" : "#e74c3c", color: "white", fontSize: "1.2rem", fontWeight: "bold", border: "none", borderRadius: "5px", cursor: loading ? "not-allowed" : "pointer", transition: "background-color 0.3s ease" }}
+          onMouseEnter={(e) => !loading && (e.target.style.backgroundColor = "#c0392b")}
+          onMouseLeave={(e) => !loading && (e.target.style.backgroundColor = "#e74c3c")}
         >
-          Reserve Table
+          {loading ? "Reserving..." : "Reserve Table"}
         </button>
       </form>
     </div>
