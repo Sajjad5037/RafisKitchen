@@ -17,7 +17,7 @@ function Reservation() {
     try {
       // Send reservation data to backend via fetch
       const res = await fetch(
-        'https://usefulapis-production.up.railway.app/api/chatRK',
+        'https://usefulapis-production.up.railway.app/api/reservationRafisKitchen',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
