@@ -7,7 +7,7 @@ import Reservation from "./pages/reservation";
 import Contact from "./pages/contact";
 import Chatbot from "./pages/Chatbot"; // Import Chatbot
 import OrderStatusPage from "./pages/OrderStatusPage";
-import Contact2 from "./pages/contactRafisKitchen";
+import ContactRK from "./pages/contactRafisKitchen";
 
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
             <Route path="/reservation" element={<Reservation />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/order-status" element={<OrderStatusPage />} />
-            <Route path="/contact2" element={<Contact2 />} />
+            <Route path="/contact2" element={<ContactRK />} />
 
           </Routes>
         </div>
