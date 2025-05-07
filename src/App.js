@@ -44,7 +44,7 @@ function App() {
         </Link>    
 
           
-          <Link to="/contact" style={{ color: "purple", textDecoration: "none" }}>Order Online</Link>
+          <Link to="/OrderOnline" style={{ color: "purple", textDecoration: "none" }}>Order Online</Link>
             <Link to="/reservation" style={{ color: "purple", textDecoration: "none" }}>Reservation</Link>
           <Link to="/contact2" style={{ color: "purple", textDecoration: "none" }}>
             Contact Us
@@ -59,7 +59,7 @@ function App() {
             <Route path="/menu" element={<Menu />} />
             <Route path="/about" element={<About />} />
             <Route path="/reservation" element={<Reservation />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/OrderOnline" element={<OrderOnline />} />
             <Route path="/order-status" element={<OrderStatusPage />} />
             <Route path="/contactRK" element={<Contact />} />
 
