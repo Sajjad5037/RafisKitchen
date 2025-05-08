@@ -54,6 +54,14 @@ const OrderOnline = () => {
   };
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const groupedItems = menuItems.reduce((acc, item) => {
+    if (!acc[item.dish_type]) {
+      acc[item.dish_type] = [];
+    }
+    acc[item.dish_type].push(item);
+    return acc;
+  }, {});
+  
 
   const handleCheckout = async () => {
     if (!cart.length) {
@@ -128,49 +136,57 @@ const OrderOnline = () => {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Menu Items</h1>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-        {menuItems.map((item) => (
-          <div
-            key={item.id}
-            style={{
-              border: "1px solid #ccc",
-              padding: "10px",
-              width: "calc(33.333% - 20px)",
-              boxSizing: "border-box",
-              textAlign: "center",
-            }}
-          >
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p>Price: ${item.price}</p>
-            <img
-              src={item.image_url}
-              alt={item.name}
-              style={{
-                width: "100%",
-                height: "200px",
-                objectFit: "cover",
-                borderRadius: "5px",
-              }}
-            />
-            <button
-              onClick={() => handleAddToCart(item)}
-              style={{
-                marginTop: "10px",
-                padding: "8px 12px",
-                backgroundColor: "#28a745",
-                color: "white",
-                border: "none",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
-              Add to Cart
-            </button>
+  
+      {/* Render grouped menu items */}
+      {Object.entries(groupedItems).map(([type, items]) => (
+        <div key={type} style={{ marginBottom: "40px" }}>
+          <h2>{type}</h2>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+            {items.map((item) => (
+              <div
+                key={item.id}
+                style={{
+                  border: "1px solid #ccc",
+                  padding: "10px",
+                  width: "calc(33.333% - 20px)",
+                  boxSizing: "border-box",
+                  textAlign: "center",
+                }}
+              >
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <p>Price: ${item.price}</p>
+                <img
+                  src={item.image_url}
+                  alt={item.name}
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    objectFit: "cover",
+                    borderRadius: "5px",
+                  }}
+                />
+                <button
+                  onClick={() => handleAddToCart(item)}
+                  style={{
+                    marginTop: "10px",
+                    padding: "8px 12px",
+                    backgroundColor: "#28a745",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
+        </div>
+      ))}
+  
+      {/* Cart section remains unchanged */}
       <h2 style={{ marginTop: "40px" }}>Your Cart</h2>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -189,9 +205,8 @@ const OrderOnline = () => {
                 }}
               >
                 <span>
-                  {item.name} x{item.quantity} — ${(
-                    item.price * item.quantity
-                  ).toFixed(2)}
+                  {item.name} x{item.quantity} — $
+                  {(item.price * item.quantity).toFixed(2)}
                 </span>
                 <button
                   onClick={() => handleRemoveFromCart(item.id)}
@@ -209,7 +224,7 @@ const OrderOnline = () => {
               </li>
             ))}
           </ul>
-
+  
           <div style={{ marginTop: "20px" }}>
             <label htmlFor="phone" style={{ fontWeight: "bold" }}>
               Enter Phone Number:
@@ -231,7 +246,7 @@ const OrderOnline = () => {
                 backgroundColor: "#f9f9f9",
               }}
             />
-
+  
             <div
               style={{
                 display: "flex",
@@ -244,7 +259,7 @@ const OrderOnline = () => {
               <span>Total:</span>
               <span>${total.toFixed(2)}</span>
             </div>
-
+  
             <button
               onClick={handleCheckout}
               disabled={!phone}
