@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function Chatbot({ onClose }) {
   const [messages, setMessages] = useState([
     { sender: 'Chatbot', text: 'Welcome! How can I help you today?' }
-  ]);
+  ]); 
   const [input, setInput] = useState('');
 
   const sendMessage = async (text) => {
